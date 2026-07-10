@@ -473,7 +473,8 @@
           <h2>Build your firm with Collins.</h2>
           <p>Join the early-access list for product updates, pilot opportunities, and private deployment details.</p>
           <form class="signup" id="signupForm">
-            <input type="email" aria-label="Work email" placeholder="Work email address" required />
+            <input type="email" name="email" aria-label="Work email" placeholder="Work email address" required />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <button class="btn" type="submit">Request Access</button>
           </form>
         </div>
@@ -495,11 +496,28 @@
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('signupForm').addEventListener('submit', function(event) {
+    document.getElementById('signupForm').addEventListener('submit', async function(event) {
       event.preventDefault();
       const button = this.querySelector('button');
-      button.textContent = 'You’re on the list';
+      const email = this.querySelector('input[name="email"]').value;
+      const honey = this.querySelector('input[name="_honey"]').value;
+      if (honey) return;
       button.disabled = true;
+      button.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/collinsgc@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, _subject: 'New Collins early-access request' })
+        });
+        const data = await res.json();
+        if (!res.ok || String(data.success) !== 'true') throw new Error('send failed');
+        button.textContent = 'You’re on the list';
+      } catch (err) {
+        button.disabled = false;
+        button.textContent = 'Request Access';
+        alert('Something went wrong — please email hello@collinsos.com directly.');
+      }
     });
   </script>
 </body>
