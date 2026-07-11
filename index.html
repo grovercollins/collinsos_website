@@ -272,6 +272,63 @@
     .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
     .feature-card p { color: #64748b; margin: 0; }
 
+    .preview-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+    .tab {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 600;
+      color: #5b6b82;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+    .tab:hover { border-color: #bcc8d6; }
+    .tab.active { background: var(--navy); border-color: var(--navy); color: white; }
+    .window {
+      display: none;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+    .window.active { display: block; }
+    .window-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--line); background: #f7f9fc; }
+    .window-dot { width: 11px; height: 11px; border-radius: 50%; background: #dde4ec; }
+    .window-title { margin-left: 10px; font-size: .85rem; color: #6b7a8d; font-weight: 600; }
+    .window-body { padding: 26px; }
+    .matter-grid { display: grid; grid-template-columns: .9fr 1.4fr; gap: 22px; }
+    .meta-card { border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+    .meta-card .panel-title { margin-bottom: 8px; }
+    .meta-row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid #edf1f5; font-size: .92rem; }
+    .meta-row:last-child { border-bottom: 0; }
+    .meta-row span { color: #6c7b8f; }
+    .doc-row { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid #edf1f5; }
+    .doc-row:last-child { border-bottom: 0; }
+    .doc-icon { width: 38px; height: 38px; border-radius: 10px; background: #edf1f6; display: grid; place-items: center; font-size: .68rem; font-weight: 700; color: #64758c; }
+    .doc-row small { color: #7a8798; }
+    .bill-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+    .bill-table th { text-align: left; font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; color: #7a8798; padding: 0 12px 12px; border-bottom: 1px solid var(--line); }
+    .bill-table td { padding: 14px 12px; border-bottom: 1px solid #edf1f5; }
+    .bill-table tr:last-child td { border-bottom: 0; }
+    .pill { padding: 4px 10px; border-radius: 999px; font-size: .75rem; font-weight: 600; background: #eef2f7; color: #52647b; white-space: nowrap; }
+    .pill.paid { background: #e7f2ea; color: #2f6b43; }
+    .pill.sent { background: #e9eef8; color: #3b5b8f; }
+    .deadline-row { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 14px 0; border-bottom: 1px solid #edf1f5; }
+    .deadline-row:last-child { border-bottom: 0; }
+    .date-chip { width: 58px; text-align: center; border: 1px solid var(--line); border-radius: 12px; padding: 8px 0; background: #f7f9fc; }
+    .date-chip b { display: block; font-size: 1.15rem; }
+    .date-chip small { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: #7a8798; }
+    .deadline-row p { margin: 0; font-weight: 600; }
+    .deadline-row p span { display: block; font-size: .85rem; color: #6c7b8f; font-weight: 400; }
+    .sample-note { margin-top: 14px; font-size: .8rem; color: #8a97a8; text-align: right; }
+    @media (max-width: 760px) {
+      .matter-grid { grid-template-columns: 1fr; }
+      .window-body { padding: 18px; }
+      .bill-table th:nth-child(2), .bill-table td:nth-child(2) { display: none; }
+    }
+
     .compare { background: #f0f3f7; }
     .compare-table { overflow:hidden; border-radius: 24px; border:1px solid var(--line); background:white; }
     .compare-row { display:grid; grid-template-columns: 1fr 1fr; border-bottom:1px solid var(--line); }
@@ -337,6 +394,7 @@
         </a>
         <div class="nav-links" id="navLinks">
           <a href="#platform">Platform</a>
+          <a href="#preview">Preview</a>
           <a href="#security">Security</a>
           <a href="#private-ai">Private AI</a>
           <a href="#comparison">Why Collins</a>
@@ -449,6 +507,86 @@
       </div>
     </section>
 
+    <section id="preview">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Inside Collins</span>
+          <h2>A closer look at the workspace.</h2>
+          <p>How matters, billing, and deadlines come together in one place. All previews shown with sample data.</p>
+        </div>
+
+        <div class="preview-tabs" role="tablist">
+          <button class="tab active" data-panel="panel-matter" type="button">Matter workspace</button>
+          <button class="tab" data-panel="panel-billing" type="button">Time &amp; billing</button>
+          <button class="tab" data-panel="panel-deadlines" type="button">Deadlines</button>
+        </div>
+
+        <div class="window active" id="panel-matter">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-title">collins — Alvarez v. Kestrel Logistics</span>
+          </div>
+          <div class="window-body matter-grid">
+            <div class="meta-card">
+              <div class="panel-title">Matter details</div>
+              <div class="meta-row"><span>Client</span><b>Maria Alvarez</b></div>
+              <div class="meta-row"><span>Matter type</span><b>Employment dispute</b></div>
+              <div class="meta-row"><span>Status</span><b>Discovery</b></div>
+              <div class="meta-row"><span>Lead attorney</span><b>J. Whitfield</b></div>
+              <div class="meta-row"><span>Opened</span><b>Mar 4, 2026</b></div>
+              <div class="meta-row"><span>Unbilled time</span><b>6.2h</b></div>
+            </div>
+            <div class="meta-card">
+              <div class="panel-title">Documents</div>
+              <div class="doc-row"><div class="doc-icon">PDF</div><div><b>Complaint — filed</b><br><small>Filed Mar 4 · 18 pages</small></div><span class="pill">Final</span></div>
+              <div class="doc-row"><div class="doc-icon">PDF</div><div><b>Answer — Kestrel Logistics</b><br><small>Received Apr 2 · 11 pages</small></div><span class="pill">Final</span></div>
+              <div class="doc-row"><div class="doc-icon">DOC</div><div><b>Discovery requests, set one</b><br><small>Edited 2 days ago · A. Prieto</small></div><span class="pill sent">In review</span></div>
+              <div class="doc-row"><div class="doc-icon">DOC</div><div><b>Deposition notice — R. Kestrel</b><br><small>Draft · due Jul 16</small></div><span class="pill">Draft</span></div>
+              <div class="doc-row"><div class="doc-icon">XLS</div><div><b>Damages analysis</b><br><small>Updated Jul 8 · linked to billing</small></div><span class="pill sent">In review</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="window" id="panel-billing">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-title">collins — Billing overview</span>
+          </div>
+          <div class="window-body">
+            <div class="stats" style="margin-bottom:20px">
+              <div class="stat"><small>Unbilled time</small><b>12.6h</b></div>
+              <div class="stat"><small>Outstanding</small><b>$16,800</b></div>
+              <div class="stat"><small>Collected this month</small><b>$42,300</b></div>
+            </div>
+            <table class="bill-table">
+              <thead><tr><th>Client</th><th>Matter</th><th>Invoice</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><b>Whitmore Family Trust</b></td><td>Estate administration</td><td>INV-1042</td><td>$4,850</td><td><span class="pill paid">Paid</span></td></tr>
+                <tr><td><b>Brightline Logistics</b></td><td>Contract dispute</td><td>INV-1041</td><td>$7,200</td><td><span class="pill sent">Sent</span></td></tr>
+                <tr><td><b>Harper &amp; Voss LLC</b></td><td>Entity formation</td><td>INV-1040</td><td>$2,400</td><td><span class="pill">Draft</span></td></tr>
+                <tr><td><b>Maria Alvarez</b></td><td>Employment dispute</td><td>INV-1039</td><td>$9,600</td><td><span class="pill sent">Sent</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="window" id="panel-deadlines">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-title">collins — Upcoming deadlines</span>
+          </div>
+          <div class="window-body">
+            <div class="deadline-row"><div class="date-chip"><small>Jul</small><b>14</b></div><p>Motion hearing — Alvarez v. Kestrel Logistics<span>Dept. 14 · 9:00 AM · J. Whitfield</span></p></div>
+            <div class="deadline-row"><div class="date-chip"><small>Jul</small><b>18</b></div><p>Discovery cutoff — Brightline Logistics<span>Responses due · reminder set for Jul 15</span></p></div>
+            <div class="deadline-row"><div class="date-chip"><small>Jul</small><b>22</b></div><p>Client meeting — Whitmore Family Trust<span>Annual review · conference room B</span></p></div>
+            <div class="deadline-row"><div class="date-chip"><small>Jul</small><b>31</b></div><p>Filing deadline — Harper &amp; Voss LLC<span>Statement of Information · assigned to A. Prieto</span></p></div>
+          </div>
+        </div>
+
+        <p class="sample-note">Previews shown with sample data. No client information is real.</p>
+      </div>
+    </section>
+
     <section class="compare" id="comparison">
       <div class="container">
         <div class="section-head">
@@ -496,6 +634,12 @@
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.preview-tabs .tab').forEach(tab => tab.addEventListener('click', () => {
+      document.querySelectorAll('.preview-tabs .tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.window').forEach(w => w.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+    }));
     document.getElementById('signupForm').addEventListener('submit', async function(event) {
       event.preventDefault();
       const button = this.querySelector('button');
