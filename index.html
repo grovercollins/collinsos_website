@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Collins is a private operating system for modern law firms — matters, documents, billing, deadlines, and confidentiality-first AI in one secure platform." />
+  <meta name="description" content="Collins is a private operating system for law firms. Your matters, your documents, and the AI that reads them all stay on hardware you control. Nothing leaves unless you turn it on." />
   <meta name="theme-color" content="#0d1b2f" />
   <meta name="robots" content="index, follow" />
   <title>Collins — Private Law Practice Management Software</title>
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Collins" />
   <meta property="og:title" content="Collins — A private operating system for modern law firms" />
-  <meta property="og:description" content="Bring matters, documents, billing, communications, deadlines, and firm knowledge into one secure platform built for modern legal work." />
+  <meta property="og:description" content="Everyone wants the AI. Nobody wants the exposure. Collins runs your matters, documents, billing, and a private AI on hardware your firm controls — nothing leaves unless you turn it on." />
   <meta property="og:url" content="https://collinsos.com/" />
   <meta property="og:image" content="https://collinsos.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -28,7 +28,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Collins — A private operating system for modern law firms" />
-  <meta name="twitter:description" content="Matters, documents, billing, deadlines, and confidentiality-first AI in one secure platform." />
+  <meta name="twitter:description" content="Everyone wants the AI. Nobody wants the exposure. A private legal OS that runs on hardware your firm controls." />
   <meta name="twitter:image" content="https://collinsos.com/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -258,6 +258,52 @@
     .privacy-card b { display:block; margin-bottom: 6px; }
     .privacy-card span { color:#c8d2df; font-size:.94rem; }
 
+    /* --- Boundary diagram (inside the navy .privacy card) --- */
+    .boundary { margin-top: 8px; }
+    .boundary svg { display: block; width: 100%; height: auto; }
+    .b-box { fill: rgba(255,255,255,.05); stroke: rgba(255,255,255,.22); }
+    .b-label { fill: #9fb0c4; }
+    .b-chip { fill: rgba(255,255,255,.09); stroke: rgba(255,255,255,.14); }
+    .b-text { fill: #ffffff; }
+    .b-ai { fill: rgba(185,175,164,.14); stroke: rgba(185,175,164,.55); }
+    .b-muted { fill: #a9b7c8; }
+    .b-on { stroke: var(--stone); stroke-width: 2; fill: none; }
+    .b-off { stroke: #5b6d85; stroke-width: 1.5; fill: none; stroke-dasharray: 5 6; }
+    .b-door-on { fill: rgba(185,175,164,.16); stroke: var(--stone); }
+    .b-door-off { fill: rgba(255,255,255,.03); stroke: #4e6076; }
+    .b-on-text { fill: #e2d9cd; }
+    .b-off-text { fill: #8296ad; }
+
+    /* --- Egress register --- */
+    .egress { margin-top: 34px; border: 1px solid rgba(255,255,255,.12); border-radius: 20px; overflow: hidden; }
+    .egress-head, .egress-row {
+      display: grid;
+      grid-template-columns: 1.1fr .5fr 1.2fr 1.1fr;
+      gap: 20px;
+      padding: 16px 22px;
+      align-items: start;
+    }
+    .egress-head {
+      background: rgba(255,255,255,.06);
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: #9fb0c4;
+    }
+    .egress-row { border-top: 1px solid rgba(255,255,255,.09); font-size: .92rem; color: #c8d2df; }
+    .egress-row b { display: block; color: #fff; font-weight: 600; margin-bottom: 3px; }
+    .door { display: inline-block; padding: 4px 11px; border-radius: 999px; font-size: .68rem; font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+    .door.on { background: rgba(185,175,164,.22); color: #e6ddd2; border: 1px solid rgba(185,175,164,.6); }
+    .door.off { background: rgba(255,255,255,.05); color: #93a3b7; border: 1px solid rgba(255,255,255,.16); }
+    .egress-note { margin-top: 22px; font-size: .92rem; color: #a9b7c8; max-width: 74ch; }
+    .egress-note b { color: #fff; font-weight: 600; }
+    .privacy-wide { grid-column: 1 / -1; }
+    .privacy-cards.trio { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { .privacy-cards.trio { grid-template-columns: 1fr; } }
+
+    @media (max-width: 860px) {
+      .egress-head { display: none; }
+      .egress-row { grid-template-columns: 1fr; gap: 8px; padding: 20px 22px; }
+    }
+
     .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .feature-card {
       min-height: 250px;
@@ -459,15 +505,15 @@
         <div class="hero-copy">
           <span class="eyebrow">Private legal infrastructure</span>
           <h1>Your firm deserves its own <span>operating system.</span></h1>
-          <p>Collins brings matters, documents, billing, communications, deadlines, and firm knowledge into one secure platform built for modern legal work.</p>
+          <p>Everyone wants the AI. Nobody wants the exposure. Collins runs your matters, documents, billing, and a private legal AI on hardware your firm controls — so the work stays on the box. Nothing leaves unless you turn it on.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#access">Request Early Access</a>
-            <a class="btn btn-secondary" href="#platform">Explore the Platform</a>
+            <a class="btn btn-secondary" href="#security">See what leaves</a>
           </div>
           <div class="trust-row">
-            <span>Firm-controlled deployment</span>
-            <span>Confidentiality-first AI</span>
-            <span>Built for legal workflows</span>
+            <span>Firm-controlled hardware</span>
+            <span>Local AI, no outside model</span>
+            <span>Every outbound path is a switch you own</span>
           </div>
         </div>
 
@@ -523,13 +569,119 @@
         <div class="privacy">
           <div>
             <span class="eyebrow">Security by architecture</span>
-            <h2>Your firm’s data should belong to your firm.</h2>
-            <p>Collins is designed for private deployment, controlled access, and confidential legal work—without forcing your firm into a generic public-cloud workflow.</p>
+            <h2>Nothing leaves unless you turn it on.</h2>
+            <p>To answer a useful question, most legal AI sends your client’s documents to a model running on someone else’s servers. That is the exposure. Collins moves the AI to the data instead of the data to the AI — matters, documents, billing, and inference all run on hardware your firm controls.</p>
+            <p>The one door open by default is your backup, encrypted before it leaves the premises. Every other outbound path is a switch, and your firm’s hand is on it.</p>
           </div>
-          <div class="privacy-cards">
-            <div class="privacy-card"><b>Private by design</b><span>Deploy on firm-controlled infrastructure, private cloud, or supported on-premise hardware.</span></div>
-            <div class="privacy-card"><b>Granular access</b><span>Role-based permissions, matter-level controls, audit trails, and secure authentication.</span></div>
-            <div class="privacy-card"><b>AI without casual exposure</b><span>Use your firm’s knowledge and documents without routing confidential work through public consumer tools.</span></div>
+
+          <div class="boundary">
+            <svg viewBox="0 0 500 470" role="img" aria-labelledby="bTitle bDesc">
+              <title id="bTitle">The Collins data boundary</title>
+              <desc id="bDesc">All firm data and AI inference stay inside firm-controlled hardware. The only outbound path open by default is an encrypted backup. Microsoft 365, card payments, and remote access are off until the firm switches them on.</desc>
+
+              <rect class="b-box" x="8" y="30" width="270" height="420" rx="18" />
+              <text class="b-label" x="26" y="60" font-size="10.5" letter-spacing="1.6" font-weight="700">YOUR PREMISES · THE BOX</text>
+
+              <g font-size="11.5" text-anchor="middle">
+                <rect class="b-chip" x="26" y="80" width="112" height="40" rx="10" />
+                <text class="b-text" x="82" y="105">Matters</text>
+                <rect class="b-chip" x="148" y="80" width="112" height="40" rx="10" />
+                <text class="b-text" x="204" y="105">Documents</text>
+                <rect class="b-chip" x="26" y="130" width="112" height="40" rx="10" />
+                <text class="b-text" x="82" y="155">Billing &amp; trust</text>
+                <rect class="b-chip" x="148" y="130" width="112" height="40" rx="10" />
+                <text class="b-text" x="204" y="155">Firm knowledge</text>
+              </g>
+
+              <rect class="b-ai" x="26" y="188" width="234" height="86" rx="12" />
+              <text class="b-text" x="143" y="220" text-anchor="middle" font-size="14" font-weight="700">Local AI inference</text>
+              <text class="b-muted" x="143" y="242" text-anchor="middle" font-size="10.5">Reads your files, answers your questions.</text>
+              <text class="b-muted" x="143" y="258" text-anchor="middle" font-size="10.5">No outside model. No training on your data.</text>
+
+              <text class="b-muted" x="143" y="330" text-anchor="middle" font-size="10.5">No telemetry. No analytics. No phone-home.</text>
+              <text class="b-muted" x="143" y="348" text-anchor="middle" font-size="10.5">The box does not report to us.</text>
+
+              <!-- Door 1 — open by default -->
+              <path class="b-on" d="M278 88 H316" />
+              <rect class="b-door-on" x="316" y="64" width="156" height="48" rx="11" />
+              <g transform="translate(330,80)">
+                <rect x="0" y="0" width="26" height="15" rx="7.5" fill="#b9afa4" />
+                <circle cx="18.5" cy="7.5" r="5.4" fill="#0d1b2f" />
+              </g>
+              <text class="b-on-text" x="366" y="83" font-size="11.5" font-weight="700">Encrypted backup</text>
+              <text class="b-on-text" x="330" y="102" font-size="8.6" letter-spacing=".08em" opacity=".85">ON BY DEFAULT · CIPHERTEXT ONLY</text>
+
+              <text class="b-label" x="316" y="150" font-size="8.8" letter-spacing=".12em" font-weight="700">OFF UNTIL YOU SWITCH IT ON</text>
+
+              <!-- Door 2 -->
+              <path class="b-off" d="M278 186 H316" />
+              <rect class="b-door-off" x="316" y="164" width="156" height="44" rx="11" />
+              <g transform="translate(330,178)">
+                <rect x="0" y="0" width="26" height="15" rx="7.5" fill="rgba(255,255,255,.12)" />
+                <circle cx="7.5" cy="7.5" r="5.4" fill="#7c8ea3" />
+              </g>
+              <text class="b-off-text" x="366" y="181" font-size="11" font-weight="600">Microsoft 365</text>
+              <text class="b-off-text" x="330" y="199" font-size="8.8" opacity=".85">Google Workspace next</text>
+
+              <!-- Door 3 -->
+              <path class="b-off" d="M278 260 H316" />
+              <rect class="b-door-off" x="316" y="238" width="156" height="44" rx="11" />
+              <g transform="translate(330,252)">
+                <rect x="0" y="0" width="26" height="15" rx="7.5" fill="rgba(255,255,255,.12)" />
+                <circle cx="7.5" cy="7.5" r="5.4" fill="#7c8ea3" />
+              </g>
+              <text class="b-off-text" x="366" y="255" font-size="11" font-weight="600">Card payments</text>
+              <text class="b-off-text" x="330" y="273" font-size="8.8" opacity=".85">Your processor, your account</text>
+
+              <!-- Door 4 -->
+              <path class="b-off" d="M278 334 H316" />
+              <rect class="b-door-off" x="316" y="312" width="156" height="44" rx="11" />
+              <g transform="translate(330,326)">
+                <rect x="0" y="0" width="26" height="15" rx="7.5" fill="rgba(255,255,255,.12)" />
+                <circle cx="7.5" cy="7.5" r="5.4" fill="#7c8ea3" />
+              </g>
+              <text class="b-off-text" x="366" y="329" font-size="11" font-weight="600">Remote access</text>
+              <text class="b-off-text" x="330" y="347" font-size="8.8" opacity=".85">Encrypted link to your own box</text>
+            </svg>
+          </div>
+
+          <div class="privacy-wide">
+            <div class="egress">
+              <div class="egress-head">
+                <div>Door</div><div>Default</div><div>What crosses</div><div>Who can read it</div>
+              </div>
+              <div class="egress-row">
+                <div><b>Encrypted backup</b>Off-site copy of the box</div>
+                <div><span class="door on">OPEN</span></div>
+                <div>Your data, encrypted on the box before it leaves</div>
+                <div>You. The storage provider holds ciphertext.</div>
+              </div>
+              <div class="egress-row">
+                <div><b>Microsoft 365</b>Google Workspace next</div>
+                <div><span class="door off">SHUT</span></div>
+                <div>Mail, calendar, and files you choose to sync</div>
+                <div>Your own Microsoft tenant — an account you already control</div>
+              </div>
+              <div class="egress-row">
+                <div><b>Card payments</b>Client-facing billing</div>
+                <div><span class="door off">SHUT</span></div>
+                <div>Payment details only — no matter files, no documents</div>
+                <div>Your payment processor, under your merchant account</div>
+              </div>
+              <div class="egress-row">
+                <div><b>Remote access</b>Working away from the office</div>
+                <div><span class="door off">SHUT</span></div>
+                <div>An encrypted private link between you and your box</div>
+                <div>Only the people your firm authorizes</div>
+              </div>
+            </div>
+            <p class="egress-note">This is the list, not a summary of it. If a path is not here, it does not exist — and note what is missing: Collins itself. <b>We do not receive your data, so we cannot be compelled to produce it, and a breach on our side cannot reach your clients.</b></p>
+          </div>
+
+          <div class="privacy-cards trio">
+            <div class="privacy-card"><b>Your data lives where you do</b><span>Every matter, document, and dollar sits on hardware your firm controls. Not our cloud. Not a shared tenant. Yours.</span></div>
+            <div class="privacy-card"><b>Granular access</b><span>Role-based permissions, matter-level controls, audit trails, and secure authentication. Every access is on the record.</span></div>
+            <div class="privacy-card"><b>Integrations on your terms</b><span>Connect the services you already run — Microsoft 365 today, Google Workspace next. Each one is a switch you flip, into an account you already own.</span></div>
           </div>
         </div>
       </div>
@@ -547,8 +699,8 @@
           <article class="feature-card"><div class="feature-icon">02</div><h3>Document Intelligence</h3><p>Search, summarize, compare, classify, and draft using your firm’s document library and templates.</p></article>
           <article class="feature-card"><div class="feature-icon">03</div><h3>Time & Billing</h3><p>Track time, manage retainers, generate invoices, and monitor collections without leaving the platform.</p></article>
           <article class="feature-card"><div class="feature-icon">04</div><h3>Calendar & Deadlines</h3><p>Coordinate hearings, meetings, limitation periods, reminders, and matter-specific workflows.</p></article>
-          <article class="feature-card"><div class="feature-icon">05</div><h3>Secure Communication</h3><p>Keep internal collaboration and client communication organized, searchable, and connected to the right matter.</p></article>
-          <article class="feature-card" id="private-ai"><div class="feature-icon">06</div><h3>Private Legal AI</h3><p>Use AI across firm knowledge and client files while retaining control over storage, processing, and access.</p></article>
+          <article class="feature-card"><div class="feature-icon">05</div><h3>Client Portal &amp; Communication</h3><p>Share documents, send updates, and collect signatures through a secure portal — every message and file tied to the right matter, hosted by your firm.</p></article>
+          <article class="feature-card" id="private-ai"><div class="feature-icon">06</div><h3>Private Legal AI</h3><p>Search, summarize, and draft against your firm’s own files — with inference running on your hardware. No outside model sees the documents, and none is trained on them.</p></article>
         </div>
       </div>
     </section>
@@ -868,11 +1020,12 @@
         </div>
         <div class="compare-table">
           <div class="compare-row header"><div>Traditional legal SaaS</div><div>Collins</div></div>
-          <div class="compare-row"><div>Vendor-controlled environment</div><div>Firm-controlled deployment</div></div>
-          <div class="compare-row"><div>Separate tools and add-ons</div><div>Unified legal operating system</div></div>
-          <div class="compare-row"><div>Limited firm-wide intelligence</div><div>Searchable private knowledge</div></div>
-          <div class="compare-row"><div>Generic AI integrations</div><div>Confidentiality-first AI</div></div>
-          <div class="compare-row"><div>One-size-fits-all workflows</div><div>Flexible workflows built around your firm</div></div>
+          <div class="compare-row"><div>Your client files live on the vendor’s servers</div><div>They live on hardware your firm controls</div></div>
+          <div class="compare-row"><div>The AI reads your documents somewhere else</div><div>The AI runs on your box, next to the documents</div></div>
+          <div class="compare-row"><div>Data flows out by default; you audit it later</div><div>Nothing leaves unless you turn it on</div></div>
+          <div class="compare-row"><div>A subpoena or breach at the vendor reaches your clients</div><div>The vendor holds nothing to produce or lose</div></div>
+          <div class="compare-row"><div>Separate tools, bolted together with add-ons</div><div>One system, built around the matter</div></div>
+          <div class="compare-row"><div>Your firm adapts to the software</div><div>The software is deployed on your terms</div></div>
         </div>
       </div>
     </section>
@@ -881,8 +1034,8 @@
       <div class="container">
         <div class="cta">
           <span class="eyebrow">Built for firms ready to own their technology</span>
-          <h2>Build your firm with Collins.</h2>
-          <p>Join the early-access list for product updates, pilot opportunities, and private deployment details.</p>
+          <h2>Get the AI. Keep the privilege.</h2>
+          <p>Join the early-access list for private deployment details, pilot opportunities, and product updates.</p>
           <form class="signup" id="signupForm">
             <input type="email" name="email" aria-label="Work email" placeholder="Work email address" required />
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
