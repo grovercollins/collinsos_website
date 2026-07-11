@@ -322,6 +322,25 @@
     .pill { padding: 4px 10px; border-radius: 999px; font-size: .75rem; font-weight: 600; background: #eef2f7; color: #52647b; white-space: nowrap; }
     .pill.paid { background: #e7f2ea; color: #2f6b43; }
     .pill.sent { background: #e9eef8; color: #3b5b8f; }
+    .rev-row { display: grid; grid-template-columns: 185px 1fr; gap: 12px; align-items: center; padding: 9px 0; border-bottom: 1px solid #edf1f5; }
+    .rev-row:last-child { border-bottom: 0; }
+    .rev-name b { display: block; font-size: .9rem; }
+    .rev-name small { color: #7a8798; font-size: .75rem; }
+    .rev-track { display: flex; align-items: center; gap: 10px; }
+    .rev-bar { height: 14px; border-radius: 4px; background: #3d5170; flex-shrink: 0; }
+    .rev-track span { font-size: .85rem; color: #40506a; font-weight: 600; white-space: nowrap; }
+    .week-wrap { overflow-x: auto; }
+    .week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; min-width: 640px; }
+    .day-head { padding-bottom: 6px; text-align: center; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7a8798; }
+    .day-head b { display: block; font-size: 1.05rem; letter-spacing: 0; color: var(--navy); }
+    .day-col { display: flex; flex-direction: column; gap: 6px; }
+    .evt { padding: 6px 8px; border-radius: 8px; font-size: .68rem; line-height: 1.35; }
+    .evt b { display: block; font-size: .7rem; }
+    .evt-a { background: #e9eef8; color: #3b5b8f; }
+    .evt-b { background: #e7f2ea; color: #2f6b43; }
+    .evt-c { background: #f7e9e7; color: #a04a40; }
+    .evt-d { background: #efe9f6; color: #6b4a91; }
+    .evt-e { background: #eef2f7; color: #52647b; }
     .day-label { margin: 14px 0 2px; font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8a97a8; }
     .day-label:first-of-type { margin-top: 0; }
     .cal-row { display: grid; grid-template-columns: 62px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid #edf1f5; font-size: .9rem; }
@@ -340,6 +359,7 @@
       .mini-cols { grid-template-columns: 1fr; }
       .stats.four { grid-template-columns: 1fr 1fr; }
       .bill-table th:nth-child(3), .bill-table td:nth-child(3) { display: none; }
+      .rev-row { grid-template-columns: 1fr; gap: 4px; }
     }
 
     .compare { background: #f0f3f7; }
@@ -532,6 +552,8 @@
           <button class="tab active" data-panel="panel-dashboard" type="button">Firm dashboard</button>
           <button class="tab" data-panel="panel-payments" type="button">Payments</button>
           <button class="tab" data-panel="panel-docket" type="button">Docket &amp; deadlines</button>
+          <button class="tab" data-panel="panel-calendar" type="button">Weekly calendar</button>
+          <button class="tab" data-panel="panel-marketing" type="button">Marketing</button>
         </div>
 
         <div class="window active" id="panel-dashboard">
@@ -551,6 +573,7 @@
               <div class="side-sec">Money</div>
               <span class="side-link">Billing</span>
               <span class="side-link">Payments</span>
+              <span class="side-link">Marketing</span>
               <div class="side-foot">All data stays on the premises</div>
             </aside>
             <div class="mini-main">
@@ -598,6 +621,7 @@
               <div class="side-sec">Money</div>
               <span class="side-link">Billing</span>
               <span class="side-link on">Payments</span>
+              <span class="side-link">Marketing</span>
               <div class="side-foot">All data stays on the premises</div>
             </aside>
             <div class="mini-main">
@@ -639,6 +663,7 @@
               <div class="side-sec">Money</div>
               <span class="side-link">Billing</span>
               <span class="side-link">Payments</span>
+              <span class="side-link">Marketing</span>
               <div class="side-foot">All data stays on the premises</div>
             </aside>
             <div class="mini-main">
@@ -664,6 +689,124 @@
                     <span>Lands on a weekend — next business day is Monday, August 10, 2026.</span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="window" id="panel-calendar">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-title">collins — Calendar</span>
+          </div>
+          <div class="app-frame">
+            <aside class="mini-side" aria-hidden="true">
+              <div class="side-brand"><img src="assets/collins-mark.png" alt="" /><span>Collins</span></div>
+              <div class="side-sec">Practice</div>
+              <span class="side-link">Home</span>
+              <span class="side-link on">Calendar</span>
+              <span class="side-link">Matters</span>
+              <span class="side-link">Contacts</span>
+              <span class="side-link">Docket &amp; deadlines</span>
+              <div class="side-sec">Money</div>
+              <span class="side-link">Billing</span>
+              <span class="side-link">Payments</span>
+              <span class="side-link">Marketing</span>
+              <div class="side-foot">All data stays on the premises</div>
+            </aside>
+            <div class="mini-main">
+              <div class="crumb">Collins Legal · Calendar</div>
+              <h4>Your whole firm's schedule, in one place.</h4>
+              <div class="week-wrap">
+                <div class="week">
+                  <div>
+                    <div class="day-head">Mon<b>6</b></div>
+                    <div class="day-col">
+                      <div class="evt evt-b"><b>9:30a</b>Closing — 40 Birchwood Ln</div>
+                      <div class="evt evt-a"><b>11:00a</b>Intake call — new matter</div>
+                      <div class="evt evt-e"><b>12:30p</b>Team lunch</div>
+                      <div class="evt evt-c"><b>2:30p</b>Deposition prep — Alvarez</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="day-head">Tue<b>7</b></div>
+                    <div class="day-col">
+                      <div class="evt evt-e"><b>9:00a</b>Staff meeting</div>
+                      <div class="evt evt-a"><b>10:30a</b>Client call — Brightline</div>
+                      <div class="evt evt-c"><b>12:00p</b>Joint pretrial list</div>
+                      <div class="evt evt-d"><b>2:00p</b>Contract review — Harper &amp; Voss</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="day-head">Wed<b>8</b></div>
+                    <div class="day-col">
+                      <div class="evt evt-c"><b>all day</b>Discovery responses due</div>
+                      <div class="evt evt-d"><b>8:30a</b>Mediation — Delgado</div>
+                      <div class="evt evt-b"><b>11:00a</b>Estate signing — Whitmore</div>
+                      <div class="evt evt-a"><b>3:00p</b>New client consult</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="day-head">Thu<b>9</b></div>
+                    <div class="day-col">
+                      <div class="evt evt-e"><b>9:00a</b>Draft order</div>
+                      <div class="evt evt-b"><b>9:30a</b>Closing — 88 Harborview Dr</div>
+                      <div class="evt evt-c"><b>1:00p</b>Motion drafting block</div>
+                      <div class="evt evt-a"><b>2:00p</b>Expert witness meeting</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="day-head">Fri<b>10</b></div>
+                    <div class="day-col">
+                      <div class="evt evt-c"><b>all day</b>Answer due — Kestrel Logistics</div>
+                      <div class="evt evt-c"><b>9:00a</b>Motion hearing — Alvarez</div>
+                      <div class="evt evt-d"><b>12:30p</b>Lunch — out of office</div>
+                      <div class="evt evt-b"><b>2:00p</b>Finalize engagement letters</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="window" id="panel-marketing">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-title">collins — Marketing</span>
+          </div>
+          <div class="app-frame">
+            <aside class="mini-side" aria-hidden="true">
+              <div class="side-brand"><img src="assets/collins-mark.png" alt="" /><span>Collins</span></div>
+              <div class="side-sec">Practice</div>
+              <span class="side-link">Home</span>
+              <span class="side-link">Calendar</span>
+              <span class="side-link">Matters</span>
+              <span class="side-link">Contacts</span>
+              <span class="side-link">Docket &amp; deadlines</span>
+              <div class="side-sec">Money</div>
+              <span class="side-link">Billing</span>
+              <span class="side-link">Payments</span>
+              <span class="side-link on">Marketing</span>
+              <div class="side-foot">All data stays on the premises</div>
+            </aside>
+            <div class="mini-main">
+              <div class="crumb">Collins Legal · Marketing</div>
+              <h4>Where clients and fees come from.</h4>
+              <div class="stats four" style="margin-bottom:18px">
+                <div class="stat"><small>Fees collected</small><b>$412,880</b></div>
+                <div class="stat"><small>Avg per matter</small><b>$2,930</b></div>
+                <div class="stat"><small>Matters with revenue</small><b>141</b></div>
+                <div class="stat"><small>Attributed to a channel</small><b>96%</b></div>
+              </div>
+              <div class="panel">
+                <div class="panel-title">Revenue by case type</div>
+                <div class="rev-row"><div class="rev-name"><b>Litigation &amp; Dispute Resolution</b><small>32 matters · avg $4,810</small></div><div class="rev-track"><div class="rev-bar" style="width:76%"></div><span>$153,900</span></div></div>
+                <div class="rev-row"><div class="rev-name"><b>General Legal Counsel</b><small>41 matters · avg $2,470</small></div><div class="rev-track"><div class="rev-bar" style="width:50%"></div><span>$101,270</span></div></div>
+                <div class="rev-row"><div class="rev-name"><b>Real Estate</b><small>24 matters · avg $3,120</small></div><div class="rev-track"><div class="rev-bar" style="width:37%"></div><span>$74,880</span></div></div>
+                <div class="rev-row"><div class="rev-name"><b>Estate Planning</b><small>29 matters · avg $1,830</small></div><div class="rev-track"><div class="rev-bar" style="width:26%"></div><span>$53,070</span></div></div>
+                <div class="rev-row"><div class="rev-name"><b>Business &amp; Corporate</b><small>11 matters · avg $2,950</small></div><div class="rev-track"><div class="rev-bar" style="width:16%"></div><span>$32,450</span></div></div>
+                <div class="rev-row"><div class="rev-name"><b>Criminal</b><small>4 matters · avg $3,900</small></div><div class="rev-track"><div class="rev-bar" style="width:8%"></div><span>$15,600</span></div></div>
               </div>
             </div>
           </div>
