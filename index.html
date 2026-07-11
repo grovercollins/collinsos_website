@@ -330,17 +330,30 @@
     .rev-bar { height: 14px; border-radius: 4px; background: #3d5170; flex-shrink: 0; }
     .rev-track span { font-size: .85rem; color: #40506a; font-weight: 600; white-space: nowrap; }
     .week-wrap { overflow-x: auto; }
-    .week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; min-width: 640px; }
-    .day-head { padding-bottom: 6px; text-align: center; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7a8798; }
-    .day-head b { display: block; font-size: 1.05rem; letter-spacing: 0; color: var(--navy); }
-    .day-col { display: flex; flex-direction: column; gap: 6px; }
-    .evt { padding: 6px 8px; border-radius: 8px; font-size: .68rem; line-height: 1.35; }
-    .evt b { display: block; font-size: .7rem; }
-    .evt-a { background: #e9eef8; color: #3b5b8f; }
-    .evt-b { background: #e7f2ea; color: #2f6b43; }
-    .evt-c { background: #f7e9e7; color: #a04a40; }
-    .evt-d { background: #efe9f6; color: #6b4a91; }
-    .evt-e { background: #eef2f7; color: #52647b; }
+    .week { min-width: 780px; }
+    .cal-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; font-size: .72rem; color: #6c7b8f; }
+    .cal-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .cal-heads, .cal-allday, .cal-grid { display: grid; grid-template-columns: 44px repeat(7, 1fr); gap: 0 4px; }
+    .cal-heads { margin-bottom: 6px; }
+    .day-head { text-align: center; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7a8798; }
+    .day-head b { display: block; width: 26px; margin: 2px auto 0; font-size: .95rem; letter-spacing: 0; color: var(--navy); }
+    .day-head.today b { background: var(--navy); color: white; border-radius: 8px; }
+    .cal-allday { margin-bottom: 8px; align-items: start; }
+    .allday-label { font-size: .58rem; text-transform: uppercase; letter-spacing: .06em; color: #8a97a8; padding-top: 3px; }
+    .banner { margin-bottom: 2px; padding: 3px 6px; border-radius: 6px; font-size: .58rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .time-col { position: relative; height: 360px; }
+    .time-col span { position: absolute; right: 8px; transform: translateY(-50%); font-size: .58rem; color: #8a97a8; }
+    .day-track { position: relative; height: 360px; border-top: 1px solid var(--line); background: repeating-linear-gradient(180deg, #eef2f7 0 1px, transparent 1px 40px); }
+    .day-track.weekend { background-color: #f7f9fc; }
+    .ev { position: absolute; left: 2px; right: 2px; padding: 2px 5px; border-radius: 5px; font-size: .56rem; font-weight: 600; line-height: 1.25; overflow: hidden; }
+    .ev i { font-style: normal; opacity: .7; margin-right: 3px; }
+    .ev-a { background: #dbe5f5; color: #2c4a7c; }
+    .ev-b { background: #d9ecdf; color: #2f6b43; }
+    .ev-c { background: #f5dedb; color: #a04a40; }
+    .ev-d { background: #e6dcf2; color: #5d3f85; }
+    .ev-e { background: #e3e9f0; color: #4a5b72; }
+    .ev-f { background: #f3e5d3; color: #8a5a2a; }
     .day-label { margin: 14px 0 2px; font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8a97a8; }
     .day-label:first-of-type { margin-top: 0; }
     .cal-row { display: grid; grid-template-columns: 62px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid #edf1f5; font-size: .9rem; }
@@ -716,53 +729,84 @@
             </aside>
             <div class="mini-main">
               <div class="crumb">Collins Legal · Calendar</div>
-              <h4>Your whole firm's schedule, in one place.</h4>
+              <h4>Jul 5–11, 2026</h4>
+              <div class="cal-legend">
+                <span><i class="dot" style="background:#2c4a7c"></i>J. Whitfield</span>
+                <span><i class="dot" style="background:#2f6b43"></i>A. Prieto</span>
+                <span><i class="dot" style="background:#a04a40"></i>D. Kim</span>
+                <span><i class="dot" style="background:#5d3f85"></i>R. Vasquez</span>
+                <span><i class="dot" style="background:#8a5a2a"></i>M. Chen</span>
+                <span><i class="dot" style="background:#4a5b72"></i>Firm</span>
+              </div>
               <div class="week-wrap">
                 <div class="week">
-                  <div>
+                  <div class="cal-heads">
+                    <div></div>
+                    <div class="day-head">Sun<b>5</b></div>
                     <div class="day-head">Mon<b>6</b></div>
-                    <div class="day-col">
-                      <div class="evt evt-b"><b>9:30a</b>Closing — 40 Birchwood Ln</div>
-                      <div class="evt evt-a"><b>11:00a</b>Intake call — new matter</div>
-                      <div class="evt evt-e"><b>12:30p</b>Team lunch</div>
-                      <div class="evt evt-c"><b>2:30p</b>Deposition prep — Alvarez</div>
-                    </div>
-                  </div>
-                  <div>
                     <div class="day-head">Tue<b>7</b></div>
-                    <div class="day-col">
-                      <div class="evt evt-e"><b>9:00a</b>Staff meeting</div>
-                      <div class="evt evt-a"><b>10:30a</b>Client call — Brightline</div>
-                      <div class="evt evt-c"><b>12:00p</b>Joint pretrial list</div>
-                      <div class="evt evt-d"><b>2:00p</b>Contract review — Harper &amp; Voss</div>
-                    </div>
-                  </div>
-                  <div>
                     <div class="day-head">Wed<b>8</b></div>
-                    <div class="day-col">
-                      <div class="evt evt-c"><b>all day</b>Discovery responses due</div>
-                      <div class="evt evt-d"><b>8:30a</b>Mediation — Delgado</div>
-                      <div class="evt evt-b"><b>11:00a</b>Estate signing — Whitmore</div>
-                      <div class="evt evt-a"><b>3:00p</b>New client consult</div>
-                    </div>
-                  </div>
-                  <div>
                     <div class="day-head">Thu<b>9</b></div>
-                    <div class="day-col">
-                      <div class="evt evt-e"><b>9:00a</b>Draft order</div>
-                      <div class="evt evt-b"><b>9:30a</b>Closing — 88 Harborview Dr</div>
-                      <div class="evt evt-c"><b>1:00p</b>Motion drafting block</div>
-                      <div class="evt evt-a"><b>2:00p</b>Expert witness meeting</div>
-                    </div>
+                    <div class="day-head today">Fri<b>10</b></div>
+                    <div class="day-head">Sat<b>11</b></div>
                   </div>
-                  <div>
-                    <div class="day-head">Fri<b>10</b></div>
-                    <div class="day-col">
-                      <div class="evt evt-c"><b>all day</b>Answer due — Kestrel Logistics</div>
-                      <div class="evt evt-c"><b>9:00a</b>Motion hearing — Alvarez</div>
-                      <div class="evt evt-d"><b>12:30p</b>Lunch — out of office</div>
-                      <div class="evt evt-b"><b>2:00p</b>Finalize engagement letters</div>
+                  <div class="cal-allday">
+                    <div class="allday-label">all-day</div>
+                    <div></div>
+                    <div><div class="banner ev-e">M. Chen — PTO</div></div>
+                    <div></div>
+                    <div><div class="banner ev-c">Discovery responses due</div></div>
+                    <div></div>
+                    <div><div class="banner ev-c">Answer due — Kestrel Logistics</div></div>
+                    <div></div>
+                  </div>
+                  <div class="cal-grid">
+                    <div class="time-col">
+                      <span style="top:0">8a</span><span style="top:40px">9a</span><span style="top:80px">10a</span><span style="top:120px">11a</span><span style="top:160px">12p</span><span style="top:200px">1p</span><span style="top:240px">2p</span><span style="top:280px">3p</span><span style="top:320px">4p</span>
                     </div>
+                    <div class="day-track weekend"></div>
+                    <div class="day-track">
+                      <div class="ev ev-b" style="top:60px;height:38px"><i>9:30</i>Closing — 40 Birchwood Ln</div>
+                      <div class="ev ev-f" style="top:100px;height:26px;right:51%"><i>10:30</i>Intake</div>
+                      <div class="ev ev-a" style="top:100px;height:26px;left:51%"><i>10:30</i>Call</div>
+                      <div class="ev ev-b" style="top:180px;height:38px"><i>12:30</i>Lunch</div>
+                      <div class="ev ev-f" style="top:260px;height:28px"><i>2:30</i>Closing — 214 Fern Hollow</div>
+                    </div>
+                    <div class="day-track">
+                      <div class="ev ev-e" style="top:40px;height:18px"><i>9:00</i>Staff meeting</div>
+                      <div class="ev ev-a" style="top:60px;height:22px;right:67%"><i>9:30</i>Zoom</div>
+                      <div class="ev ev-c" style="top:60px;height:22px;left:34%;right:34%"><i>9:30</i>Consult</div>
+                      <div class="ev ev-f" style="top:60px;height:22px;left:67%"><i>9:30</i>Call</div>
+                      <div class="ev ev-c" style="top:160px;height:130px;right:40%"><i>12:00</i>Joint pretrial conference</div>
+                      <div class="ev ev-a" style="top:200px;height:28px;left:62%"><i>1:00</i>Client — in person</div>
+                      <div class="ev ev-e" style="top:240px;height:24px;left:62%"><i>2:00</i>Cash flow review</div>
+                    </div>
+                    <div class="day-track">
+                      <div class="ev ev-a" style="top:0;height:56px"><i>8:00</i>Trial prep — Delgado</div>
+                      <div class="ev ev-e" style="top:80px;height:22px;right:51%"><i>10:00</i>Zoning call</div>
+                      <div class="ev ev-d" style="top:80px;height:22px;left:51%"><i>10:00</i>Intake</div>
+                      <div class="ev ev-b" style="top:120px;height:38px"><i>11:00</i>Estate signing — Whitmore</div>
+                      <div class="ev ev-e" style="top:240px;height:48px"><i>2:00</i>Motion review</div>
+                      <div class="ev ev-c" style="top:280px;height:24px;left:55%"><i>3:00</i>Consult</div>
+                    </div>
+                    <div class="day-track">
+                      <div class="ev ev-e" style="top:40px;height:26px;right:45%"><i>9:00</i>Draft order</div>
+                      <div class="ev ev-b" style="top:60px;height:38px;left:58%"><i>9:30</i>Closing — 88 Harborview Dr</div>
+                      <div class="ev ev-c" style="top:80px;height:38px;right:45%"><i>10:00</i>Discovery responses</div>
+                      <div class="ev ev-b" style="top:100px;height:30px;left:58%"><i>10:30</i>Closing — 15 Larkspur Ct</div>
+                      <div class="ev ev-a" style="top:240px;height:38px"><i>2:00</i>Meeting — expert witness</div>
+                      <div class="ev ev-d" style="top:280px;height:26px;left:50%"><i>3:00</i>Team debrief</div>
+                    </div>
+                    <div class="day-track">
+                      <div class="ev ev-c" style="top:40px;height:90px;right:76%"><i>9:00</i>Motion hearing — Alvarez</div>
+                      <div class="ev ev-a" style="top:40px;height:70px;left:25%;right:51%"><i>9:00</i>Hearing — mtn to compel</div>
+                      <div class="ev ev-e" style="top:40px;height:56px;left:50%;right:26%"><i>9:00</i>Prep</div>
+                      <div class="ev ev-a" style="top:40px;height:80px;left:75%"><i>9:00</i>Hearing</div>
+                      <div class="ev ev-d" style="top:180px;height:120px;right:35%"><i>12:30</i>OoO — firm offsite</div>
+                      <div class="ev ev-a" style="top:220px;height:26px;left:67%"><i>1:30</i>Call — settlement</div>
+                      <div class="ev ev-b" style="top:260px;height:30px;left:67%"><i>2:00</i>Engagement letters</div>
+                    </div>
+                    <div class="day-track weekend"></div>
                   </div>
                 </div>
               </div>
