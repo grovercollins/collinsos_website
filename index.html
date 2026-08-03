@@ -186,6 +186,29 @@
       font-size: 0.88rem;
     }
     .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--navy); font-weight: 700; }
+    .hero-terms { margin: 14px 0 0; font-size: .88rem; font-weight: 600; color: #52647b; }
+    .nav-signin-mobile { display: none; }
+
+    /* --- Pricing --- */
+    .pricing-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 18px; align-items: stretch; }
+    .price-card {
+      display: flex; flex-direction: column;
+      padding: 36px; border-radius: 26px;
+      background: white; border: 1px solid var(--line);
+    }
+    .price-card.featured { background: var(--navy); color: white; border-color: var(--navy); box-shadow: var(--shadow); }
+    .price-plan { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 1.1rem; }
+    .price-num { margin: 14px 0 2px; font-family: "Manrope", sans-serif; font-size: 3.4rem; font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+    .price-num small { font-size: 1.05rem; font-weight: 600; letter-spacing: 0; color: inherit; opacity: .72; }
+    .price-sub { font-size: .92rem; opacity: .78; margin-bottom: 20px; }
+    .price-list { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 11px; font-size: .95rem; }
+    .price-list li { padding-left: 26px; position: relative; }
+    .price-list li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: var(--stone); }
+    .price-card:not(.featured) .price-list li::before { color: var(--navy); }
+    .price-card .btn { margin-top: auto; align-self: flex-start; }
+    .price-card.featured .btn { background: white; color: var(--navy); }
+    .price-foot { margin-top: 14px; font-size: .8rem; opacity: .66; }
+    @media (max-width: 860px) { .pricing-grid { grid-template-columns: 1fr; } }
 
     .dashboard {
       position: relative;
@@ -456,7 +479,9 @@
       .nav-links { display:none; position:absolute; left:20px; right:20px; top:76px; flex-direction:column; align-items:stretch; padding:20px; background:white; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); }
       .nav-links.open { display:flex; }
       .menu-btn { display:block; }
-      .nav-actions .btn { display:none; }
+      .nav-actions .btn-secondary { display:none; }
+      .nav-actions .btn-primary { min-height:42px; padding:0 14px; font-size:.88rem; }
+      .nav-signin-mobile { display:block; }
     }
     @media (max-width: 640px) {
       .container { width:min(100% - 26px, 1180px); }
@@ -489,10 +514,13 @@
           <a href="#preview">Preview</a>
           <a href="#security">Security</a>
           <a href="#private-ai">Private AI</a>
+          <a href="#pricing">Pricing</a>
           <a href="#comparison">Why Collins</a>
+          <a class="nav-signin-mobile" href="https://app.collinsos.com/login">Sign in</a>
         </div>
         <div class="nav-actions">
-          <a class="btn btn-primary" href="#access">Request Early Access</a>
+          <a class="btn btn-secondary" href="https://app.collinsos.com/login">Sign in</a>
+          <a class="btn btn-primary" href="https://app.collinsos.com/signup">Start free trial</a>
           <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
         </div>
       </nav>
@@ -505,11 +533,12 @@
         <div class="hero-copy">
           <span class="eyebrow">Private legal infrastructure</span>
           <h1>Your firm deserves its own <span>operating system.</span></h1>
-          <p>Everyone wants the AI. Nobody wants the exposure. Collins runs your matters, documents, billing, and a private legal AI on hardware your firm controls — so the work stays on the box. Nothing leaves unless you turn it on.</p>
+          <p>Everyone wants the AI. Nobody wants the exposure. Collins runs your matters, documents, billing, and a private legal AI on private hardware — your firm's own isolated database, or your firm's own box entirely. Nothing leaves unless you turn it on.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#access">Request Early Access</a>
+            <a class="btn btn-primary" href="https://app.collinsos.com/signup">Start free trial</a>
             <a class="btn btn-secondary" href="#security">See what leaves</a>
           </div>
+          <p class="hero-terms">$49/month flat per firm · 30-day free trial · no card to start</p>
           <div class="trust-row">
             <span>Firm-controlled hardware</span>
             <span>Local AI, no outside model</span>
@@ -572,6 +601,7 @@
             <h2>Nothing leaves unless you turn it on.</h2>
             <p>To answer a useful question, most legal AI sends your client’s documents to a model running on someone else’s servers. That is the exposure. Collins moves the AI to the data instead of the data to the AI — matters, documents, billing, and inference all run on hardware your firm controls.</p>
             <p>The one door open by default is your backup, encrypted before it leaves the premises. Every other outbound path is a switch, and your firm’s hand is on it.</p>
+            <p style="font-size:.9rem; opacity:.75;">The diagram shows a dedicated deployment — Collins on a box your firm controls outright. On the cloud edition, your firm still gets its own isolated database (never a shared tenant), the same switches, and a full export whenever you want it.</p>
           </div>
 
           <div class="boundary">
@@ -621,7 +651,7 @@
                 <circle cx="7.5" cy="7.5" r="5.4" fill="#7c8ea3" />
               </g>
               <text class="b-off-text" x="366" y="181" font-size="11" font-weight="600">Microsoft 365</text>
-              <text class="b-off-text" x="330" y="199" font-size="8.8" opacity=".85">Google Workspace next</text>
+              <text class="b-off-text" x="330" y="199" font-size="8.8" opacity=".85">or Google Workspace</text>
 
               <!-- Door 3 -->
               <path class="b-off" d="M278 260 H316" />
@@ -657,10 +687,10 @@
                 <div>You. The storage provider holds ciphertext.</div>
               </div>
               <div class="egress-row">
-                <div><b>Microsoft 365</b>Google Workspace next</div>
+                <div><b>Microsoft 365 or Google</b>Sign in once in Settings</div>
                 <div><span class="door off">SHUT</span></div>
                 <div>Mail, calendar, and files you choose to sync</div>
-                <div>Your own Microsoft tenant — an account you already control</div>
+                <div>Your own Microsoft or Google account — one you already control</div>
               </div>
               <div class="egress-row">
                 <div><b>Card payments</b>Client-facing billing</div>
@@ -681,7 +711,7 @@
           <div class="privacy-cards trio">
             <div class="privacy-card"><b>Your data lives where you do</b><span>Every matter, document, and dollar sits on hardware your firm controls. Not our cloud. Not a shared tenant. Yours.</span></div>
             <div class="privacy-card"><b>Granular access</b><span>Role-based permissions, matter-level controls, audit trails, and secure authentication. Every access is on the record.</span></div>
-            <div class="privacy-card"><b>Integrations on your terms</b><span>Connect the services you already run — Microsoft 365 today, Google Workspace next. Each one is a switch you flip, into an account you already own.</span></div>
+            <div class="privacy-card"><b>Integrations on your terms</b><span>Connect the services you already run — Microsoft 365 or Google Workspace, e-signature, card payments. Each one is a switch you flip, into an account you already own.</span></div>
           </div>
         </div>
       </div>
@@ -1020,12 +1050,52 @@
         </div>
         <div class="compare-table">
           <div class="compare-row header"><div>Traditional legal SaaS</div><div>Collins</div></div>
-          <div class="compare-row"><div>Your client files live on the vendor’s servers</div><div>They live on hardware your firm controls</div></div>
-          <div class="compare-row"><div>The AI reads your documents somewhere else</div><div>The AI runs on your box, next to the documents</div></div>
+          <div class="compare-row"><div>Your client files live in one shared multi-tenant database</div><div>Every firm gets its own isolated database — or its own box entirely</div></div>
+          <div class="compare-row"><div>The AI ships your documents to an outside model vendor</div><div>The AI runs on Collins hardware next to the documents — no third-party model ever sees them</div></div>
           <div class="compare-row"><div>Data flows out by default; you audit it later</div><div>Nothing leaves unless you turn it on</div></div>
-          <div class="compare-row"><div>A subpoena or breach at the vendor reaches your clients</div><div>The vendor holds nothing to produce or lose</div></div>
+          <div class="compare-row"><div>A subpoena or breach at the vendor reaches every client of every firm</div><div>Isolation by database — and on a dedicated box, the vendor holds nothing at all</div></div>
           <div class="compare-row"><div>Separate tools, bolted together with add-ons</div><div>One system, built around the matter</div></div>
           <div class="compare-row"><div>Your firm adapts to the software</div><div>The software is deployed on your terms</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Simple pricing</span>
+          <h2>One flat price. Every feature. No per-seat math.</h2>
+          <p>Collins costs the same whether you're a solo practice or a growing team. Start free, add your firm's details, and only pay if it earns its keep.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card featured">
+            <div class="price-plan">Collins</div>
+            <div class="price-num">$49<small>/month per firm</small></div>
+            <div class="price-sub">30-day free trial · no card to start</div>
+            <ul class="price-list">
+              <li>Everything included: matters, contacts, calendar, tasks, time &amp; billing, invoicing, payments, trust ledger, reports</li>
+              <li>Sign in with Microsoft 365 or Google — email and calendar connect in minutes, no IT ticket</li>
+              <li>Import your contacts and matters from a CSV export — dry run first, so you see exactly what lands</li>
+              <li>E-signature and client card payments, on your own accounts</li>
+              <li>Your firm's data in its own database — never a shared tenant</li>
+              <li>Cancel anytime and take a full export with you</li>
+            </ul>
+            <a class="btn" href="https://app.collinsos.com/signup">Start free trial</a>
+            <div class="price-foot">Flat rate. Unlimited users. If your trial lapses, your data stays readable — Collins never locks you out of your own records.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-plan">Dedicated deployment</div>
+            <div class="price-num" style="font-size:2.2rem; margin-top:20px;">Your own box</div>
+            <div class="price-sub">For firms that want the full private-AI story on premises</div>
+            <ul class="price-list">
+              <li>Collins on hardware your firm controls — the architecture on this page, end to end</li>
+              <li>Local AI inference next to your documents; nothing leaves unless you turn it on</li>
+              <li>Migration from your current practice-management system, handled with you</li>
+              <li>Operator-provisioned, with backups and a tested restore before your data ever arrives</li>
+            </ul>
+            <a class="btn btn-primary" href="mailto:hello@collinsos.com?subject=Dedicated%20Collins%20deployment">Talk to us</a>
+            <div class="price-foot">Priced per engagement — tell us about your firm.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1035,11 +1105,16 @@
         <div class="cta">
           <span class="eyebrow">Built for firms ready to own their technology</span>
           <h2>Get the AI. Keep the privilege.</h2>
-          <p>Join the early-access list for private deployment details, pilot opportunities, and product updates.</p>
+          <p>Create your firm in about a minute — name, email, password. Your trial starts with a working practice OS, not a sales call.</p>
+          <div class="hero-actions" style="justify-content:center">
+            <a class="btn" style="background:white;color:var(--navy)" href="https://app.collinsos.com/signup">Start your free trial</a>
+            <a class="btn" style="border:1px solid rgba(255,255,255,.35);color:white" href="https://app.collinsos.com/login">Sign in</a>
+          </div>
+          <p style="margin:26px auto 10px; max-width:650px; color:#cbd5e1; font-size:.92rem;">Rather talk it through first — or interested in a dedicated box? Leave your email and we'll reach out.</p>
           <form class="signup" id="signupForm">
             <input type="email" name="email" aria-label="Work email" placeholder="Work email address" required />
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <button class="btn" type="submit">Request Access</button>
+            <button class="btn" type="submit">Contact me</button>
           </form>
         </div>
       </div>
@@ -1050,7 +1125,7 @@
     <div class="container footer-row">
       <div class="brand"><img class="brand-mark" src="assets/collins-mark.png" alt="" aria-hidden="true" /><span>collins</span></div>
       <div>© <span id="year"></span> Collins. All rights reserved.</div>
-      <div class="footer-links"><a href="#security">Security</a><a href="#access">Contact</a></div>
+      <div class="footer-links"><a href="#pricing">Pricing</a><a href="#security">Security</a><a href="https://app.collinsos.com/login">Sign in</a><a href="mailto:hello@collinsos.com">Contact</a></div>
     </div>
   </footer>
 
@@ -1078,14 +1153,14 @@
         const res = await fetch('https://formsubmit.co/ajax/f7f86bf8cce6f58807a5ad31351f46f4', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email, _subject: 'New Collins early-access request' })
+          body: JSON.stringify({ email: email, _subject: 'Collins — contact request from collinsos.com' })
         });
         const data = await res.json();
         if (!res.ok || String(data.success) !== 'true') throw new Error('send failed');
-        button.textContent = 'You’re on the list';
+        button.textContent = 'We’ll be in touch';
       } catch (err) {
         button.disabled = false;
-        button.textContent = 'Request Access';
+        button.textContent = 'Contact me';
         alert('Something went wrong — please email hello@collinsos.com directly.');
       }
     });
