@@ -398,6 +398,15 @@
     .rev-track { display: flex; align-items: center; gap: 10px; }
     .rev-bar { height: 14px; border-radius: 4px; background: #3d5170; flex-shrink: 0; }
     .rev-track span { font-size: .85rem; color: #40506a; font-weight: 600; white-space: nowrap; }
+    .wc-draft { background: #f6f8fb; border: 1px solid #e3e9f0; border-radius: 10px; padding: 12px 14px; font-size: .85rem; line-height: 1.55; color: #40506a; margin-bottom: 12px; }
+    .wc-opts { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: .72rem; color: #6c7b8f; margin-bottom: 12px; }
+    .wc-opts b { color: #24344d; font-weight: 600; }
+    .wc-sugg { padding: 8px 0; border-bottom: 1px solid #edf1f5; }
+    .wc-sugg:last-child { border-bottom: 0; }
+    .wc-kind { font-size: .62rem; text-transform: uppercase; letter-spacing: .07em; color: #7a8798; margin-bottom: 2px; }
+    .wc-fix { font-size: .86rem; }
+    .wc-fix s { opacity: .65; }
+    .wc-note { font-size: .76rem; color: #7a8798; }
     .week-wrap { overflow-x: auto; }
     .week { min-width: 780px; }
     .cal-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; font-size: .72rem; color: #6c7b8f; }
@@ -727,7 +736,7 @@
         </div>
         <div class="features-grid">
           <article class="feature-card"><div class="feature-icon">01</div><h3>Matter Management</h3><p>Contacts, deadlines, notes, tasks, communications, documents, and billing organized around each matter.</p></article>
-          <article class="feature-card"><div class="feature-icon">02</div><h3>Document Intelligence</h3><p>Search, summarize, compare, classify, and draft using your firm’s document library and templates.</p></article>
+          <article class="feature-card"><div class="feature-icon">02</div><h3>Document Intelligence</h3><p>Search, summarize, compare, classify, and draft using your firm’s document library and templates — with grammar, style, and tone review that runs entirely on your server.</p></article>
           <article class="feature-card"><div class="feature-icon">03</div><h3>Time & Billing</h3><p>Track time, manage retainers, generate invoices, and monitor collections without leaving the platform.</p></article>
           <article class="feature-card"><div class="feature-icon">04</div><h3>Calendar & Deadlines</h3><p>Coordinate hearings, meetings, limitation periods, reminders, and matter-specific workflows.</p></article>
           <article class="feature-card"><div class="feature-icon">05</div><h3>Client Portal &amp; Communication</h3><p>Share documents, send updates, and collect signatures through a secure portal — every message and file tied to the right matter, hosted by your firm.</p></article>
@@ -750,6 +759,7 @@
           <button class="tab" data-panel="panel-docket" type="button">Docket &amp; deadlines</button>
           <button class="tab" data-panel="panel-calendar" type="button">Weekly calendar</button>
           <button class="tab" data-panel="panel-marketing" type="button">Marketing</button>
+          <button class="tab" data-panel="panel-writing" type="button">Writing check</button>
         </div>
 
         <div class="window active" id="panel-dashboard">
@@ -1035,6 +1045,44 @@
                 <div class="rev-row"><div class="rev-name"><b>Business &amp; Corporate</b><small>11 matters · avg $2,950</small></div><div class="rev-track"><div class="rev-bar" style="width:16%"></div><span>$32,450</span></div></div>
                 <div class="rev-row"><div class="rev-name"><b>Criminal</b><small>4 matters · avg $3,900</small></div><div class="rev-track"><div class="rev-bar" style="width:8%"></div><span>$15,600</span></div></div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="window" id="panel-writing">
+          <div class="window-bar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span class="window-title">collins — Generate documents</span>
+          </div>
+          <div class="app-frame">
+            <aside class="mini-side" aria-hidden="true">
+              <div class="side-brand"><img src="assets/collins-mark.png" alt="" /><span>Collins</span></div>
+              <div class="side-sec">Practice</div>
+              <span class="side-link">Home</span>
+              <span class="side-link">Calendar</span>
+              <span class="side-link">Matters</span>
+              <span class="side-link">Contacts</span>
+              <span class="side-link on">Generate documents</span>
+              <div class="side-sec">Money</div>
+              <span class="side-link">Billing</span>
+              <span class="side-link">Payments</span>
+              <span class="side-link">Marketing</span>
+              <div class="side-foot">All data stays on the premises</div>
+            </aside>
+            <div class="mini-main">
+              <div class="crumb">Collins Legal · Generate documents · Check writing</div>
+              <h4>Review the writing before it goes out.</h4>
+              <div class="wc-draft">Dear Ms. Calloway, Enclosed please find the the settlement agreement for you're review. Pursuant to our conversation heretofore, we has proposed a revised payment schedule for your consideration.</div>
+              <div class="wc-opts"><span>Tone: <b>Plain English</b></span><span>Thorough style rules: <b>on</b></span><span>Voice: <b>“short sentences, no Latin”</b></span></div>
+              <div class="panel">
+                <div class="panel-title">Suggestions</div>
+                <div class="wc-sugg"><div class="wc-kind">Spelling · rule engine</div><div class="wc-fix"><s>the the</s> → <b>the</b></div><div class="wc-note">Possible typo: repeated word.</div></div>
+                <div class="wc-sugg"><div class="wc-kind">Grammar · rule engine</div><div class="wc-fix"><s>you're review</s> → <b>your review</b></div><div class="wc-note">Confusion of “you're” and “your”.</div></div>
+                <div class="wc-sugg"><div class="wc-kind">Grammar · rule engine</div><div class="wc-fix"><s>we has proposed</s> → <b>we have proposed</b></div><div class="wc-note">Subject–verb agreement.</div></div>
+                <div class="wc-sugg"><div class="wc-kind">Tone · local model</div><div class="wc-fix"><s>Pursuant to our conversation heretofore</s> → <b>As we discussed</b></div><div class="wc-note">Plain-English phrasing the client understands.</div></div>
+                <div class="wc-sugg"><div class="wc-kind">Clarity · local model</div><div class="wc-fix"><s>Enclosed please find</s> → <b>I've enclosed</b></div><div class="wc-note">Shorter and more direct.</div></div>
+              </div>
+              <div class="wc-note" style="margin-top:10px">Advisory only — nothing is changed for you. Both engines run on your hardware; the draft never leaves the building.</div>
             </div>
           </div>
         </div>
