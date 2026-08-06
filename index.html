@@ -187,6 +187,30 @@
     }
     .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--navy); font-weight: 700; }
     .hero-terms { margin: 14px 0 0; font-size: .88rem; font-weight: 600; color: #52647b; }
+    .hero-proof { margin: 18px 0 0; font-size: .92rem; color: #52647b; }
+    .hero-proof b { color: var(--navy); }
+
+    /* --- Before / after Collins --- */
+    .switch-grid { display: grid; grid-template-columns: 1fr 56px 1fr; gap: 18px; align-items: stretch; }
+    .switch-card { padding: 32px; border-radius: 26px; background: white; border: 1px solid var(--line); }
+    .switch-card.after { background: var(--navy); color: white; border-color: var(--navy); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .switch-card.after ul { margin: auto 0; gap: 16px; }
+    .switch-label {
+      font-family: "Manrope", sans-serif; font-weight: 700;
+      font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+      color: #6b7a8d; margin-bottom: 18px;
+    }
+    .switch-card.after .switch-label { color: var(--stone); }
+    .switch-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .switch-card.before li { padding: 10px 14px; border: 1px dashed var(--line); border-radius: 12px; background: #f7f9fc; font-weight: 600; font-size: .95rem; }
+    .switch-card.before li span { display: block; font-weight: 400; font-size: .84rem; color: #6b7a8d; margin-top: 2px; }
+    .switch-card.after li { position: relative; padding-left: 26px; font-size: 1rem; }
+    .switch-card.after li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: var(--stone); }
+    .switch-arrow { display: grid; place-items: center; font-size: 1.6rem; color: #6b7a8d; }
+    @media (max-width: 900px) {
+      .switch-grid { grid-template-columns: 1fr; }
+      .switch-arrow { transform: rotate(90deg); padding: 4px 0; }
+    }
     .nav-signin-mobile { display: none; }
 
     /* --- Pricing --- */
@@ -572,7 +596,7 @@
         </div>
         <div class="nav-actions">
           <a class="btn btn-secondary" href="https://app.collinsos.com/login">Sign in</a>
-          <a class="btn btn-primary" href="https://app.collinsos.com/signup">Start free trial</a>
+          <a class="btn btn-primary" href="https://app.collinsos.com/signup">Try Collins</a>
           <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
         </div>
       </nav>
@@ -585,12 +609,13 @@
         <div class="hero-copy">
           <span class="eyebrow">Private legal infrastructure</span>
           <h1>Your firm deserves its own <span>operating system.</span></h1>
-          <p>One system for matters, documents, billing, calendar, and a legal AI that knows your files — instead of five subscriptions taped together. Less re-keying, no documents lost in email, billing that keeps pace with the work. Every firm gets its own isolated database, client data never trains a public model — and firms that need maximum isolation can run Collins on their own hardware, where nothing leaves unless you turn it on.</p>
+          <p>Run your entire firm from one private operating system — matters, documents, billing, intake, e-signature, calendaring, client portal, and a legal AI that knows your files. One login. One database, your firm's own, never training a public model. And firms that want maximum isolation can run Collins on hardware they control — where nothing leaves unless you turn it on.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://app.collinsos.com/signup">Start free trial</a>
+            <a class="btn btn-primary" href="https://app.collinsos.com/signup">Try Collins in your firm</a>
             <a class="btn btn-secondary" href="#security">See what leaves</a>
           </div>
-          <p class="hero-terms">Founding firm pricing — $49 per user/month, locked for 24 months · 14-day free trial · no card to start</p>
+          <p class="hero-proof">Already running every day inside <b>Collins Legal</b>, a working law firm. Every release is proven in production before it ships.</p>
+          <p class="hero-terms">Founding firm pricing — $49 per user/month, locked for 24 months · two-week pilot · no card to start</p>
           <div class="trust-row">
             <span>Isolated database per firm</span>
             <span>Client data never trains public models</span>
@@ -640,6 +665,41 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="switch">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Before and after</span>
+          <h2>Replace the stack, not one tool in it.</h2>
+          <p>Everyone wants the AI. Nobody wants the exposure. Meanwhile the rest of the firm runs on a patchwork — practice management here, e-signature there, scheduling somewhere else, client files pasted into a chatbot. Collins replaces the whole stack with one system built around the matter.</p>
+        </div>
+        <div class="switch-grid">
+          <div class="switch-card before">
+            <div class="switch-label">Before Collins</div>
+            <ul>
+              <li>Practice management<span>Clio, PracticePanther, MyCase</span></li>
+              <li>E-signature<span>DocuSign, one envelope at a time</span></li>
+              <li>Scheduling<span>Calendly links and calendar tag</span></li>
+              <li>AI<span>ChatGPT in a browser tab — with client data pasted in</span></li>
+              <li>Documents<span>Word templates scattered across a shared drive</span></li>
+              <li>Client communication<span>Email threads and phone tag</span></li>
+            </ul>
+          </div>
+          <div class="switch-arrow" aria-hidden="true">→</div>
+          <div class="switch-card after">
+            <div class="switch-label">After Collins</div>
+            <ul>
+              <li>One operating system for the whole firm</li>
+              <li>One login for every workflow</li>
+              <li>One database — your firm's own, never shared</li>
+              <li>Private AI grounded in your firm's files, never training a public model</li>
+              <li>Every outbound connection is a switch your firm flips</li>
+              <li>One subscription to cancel the rest</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1188,14 +1248,14 @@
         <div class="section-head">
           <span class="eyebrow">Founding firm pricing</span>
           <h2>One price per seat, locked in early.</h2>
-          <p>Collins is onboarding its founding cohort — the first firms who'll shape the platform. Early customers lock in $49/user pricing for 24 months, with no tiers, no feature gates, and no add-on modules. Start free, add your firm's details, and only pay if it earns its keep.</p>
+          <p>Collins is onboarding its founding cohort — the first firms who'll shape the platform. Early customers lock in $49/user pricing for 24 months, with no tiers, no feature gates, and no add-on modules. Pilot it free for two weeks alongside your current system, and only pay if it earns its keep.</p>
         </div>
         <div class="pricing-grid">
           <div class="price-card featured">
             <div class="founder-badge">Founding cohort · First 100 firms</div>
             <div class="price-plan">Collins — Founding Firm</div>
             <div class="price-num">$49<small>/user per month</small></div>
-            <div class="price-sub">Locked for 24 months · 14-day free trial · no card to start</div>
+            <div class="price-sub">Locked for 24 months · two-week pilot · no card to start</div>
             <ul class="price-list">
               <li>Founding-cohort rate locked for 24 months, lifetime priority support, and a direct voice in what gets built next</li>
               <li>Everything included: matters, contacts, calendar, tasks, time &amp; billing, invoicing, payments, trust ledger, reports</li>
@@ -1205,8 +1265,8 @@
               <li>Your firm's data in its own database — never a shared tenant</li>
               <li>Cancel anytime and take a full export with you</li>
             </ul>
-            <a class="btn" href="https://app.collinsos.com/signup">Start free trial</a>
-            <div class="price-foot">Every seat gets every feature. When the founding cohort fills, pricing rises for new firms — founding firms keep their rate. If your trial lapses, your data stays readable — Collins never locks you out of your own records.</div>
+            <a class="btn" href="https://app.collinsos.com/signup">Start your pilot</a>
+            <div class="price-foot">Every seat gets every feature. When the founding cohort fills, pricing rises for new firms — founding firms keep their rate. If your pilot lapses, your data stays readable — Collins never locks you out of your own records.</div>
           </div>
           <div class="price-card">
             <div class="price-plan">Collins Private</div>
@@ -1231,9 +1291,9 @@
         <div class="cta">
           <span class="founder-badge">Founding cohort · Limited to the first 100 firms</span>
           <h2>Get the AI. Keep the privilege.</h2>
-          <p>Create your firm in about a minute — name, email, password. Your trial starts with a working practice OS, not a sales call.</p>
+          <p>Create your firm in about a minute — name, email, password. Your pilot starts with a working practice OS, not a sales call. Run Collins alongside your current system for two weeks — import your contacts and matters from a CSV, connect your email, and see your own firm inside it. Cancel anytime.</p>
           <div class="hero-actions" style="justify-content:center">
-            <a class="btn" style="background:white;color:var(--navy)" href="https://app.collinsos.com/signup">Start your free trial</a>
+            <a class="btn" style="background:white;color:var(--navy)" href="https://app.collinsos.com/signup">Start your pilot</a>
             <a class="btn" style="border:1px solid rgba(255,255,255,.35);color:white" href="https://app.collinsos.com/login">Sign in</a>
           </div>
           <p style="margin:26px auto 10px; max-width:650px; color:#cbd5e1; font-size:.92rem;">Rather talk it through first — or interested in a dedicated box? Leave your email and we'll reach out.</p>
