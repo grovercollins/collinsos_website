@@ -208,6 +208,21 @@
     .price-card .btn { margin-top: auto; align-self: flex-start; }
     .price-card.featured .btn { background: white; color: var(--navy); }
     .price-foot { margin-top: 14px; font-size: .8rem; opacity: .66; }
+    .founder-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      align-self: flex-start;
+      margin-bottom: 18px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: var(--stone);
+      color: var(--navy);
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .cta .founder-badge { margin: 0 0 18px; }
     @media (max-width: 860px) { .pricing-grid { grid-template-columns: 1fr; } }
 
     .dashboard {
@@ -547,7 +562,7 @@
             <a class="btn btn-primary" href="https://app.collinsos.com/signup">Start free trial</a>
             <a class="btn btn-secondary" href="#security">See what leaves</a>
           </div>
-          <p class="hero-terms">$49 per user/month · 14-day free trial · no card to start</p>
+          <p class="hero-terms">Founding firm pricing — $49 per user/month, locked for 24 months · 14-day free trial · no card to start</p>
           <div class="trust-row">
             <span>Firm-controlled hardware</span>
             <span>Local AI, no outside model</span>
@@ -1112,16 +1127,18 @@
     <section id="pricing">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Simple pricing</span>
-          <h2>One price per seat. Every feature included.</h2>
-          <p>No tiers, no feature gates, no add-on modules — every seat gets the whole system. Start free, add your firm's details, and only pay if it earns its keep.</p>
+          <span class="eyebrow">Founding firm pricing</span>
+          <h2>One price per seat, locked in early.</h2>
+          <p>Collins is onboarding its founding cohort — the first firms who'll shape the platform. Early customers lock in $49/user pricing for 24 months, with no tiers, no feature gates, and no add-on modules. Start free, add your firm's details, and only pay if it earns its keep.</p>
         </div>
         <div class="pricing-grid">
           <div class="price-card featured">
-            <div class="price-plan">Collins</div>
+            <div class="founder-badge">Founding cohort · First 100 firms</div>
+            <div class="price-plan">Collins — Founding Firm</div>
             <div class="price-num">$49<small>/user per month</small></div>
-            <div class="price-sub">14-day free trial · no card to start</div>
+            <div class="price-sub">Locked for 24 months · 14-day free trial · no card to start</div>
             <ul class="price-list">
+              <li>Founding-cohort rate locked for 24 months, lifetime priority support, and a direct voice in what gets built next</li>
               <li>Everything included: matters, contacts, calendar, tasks, time &amp; billing, invoicing, payments, trust ledger, reports</li>
               <li>Sign in with Microsoft 365 or Google — email and calendar connect in minutes, no IT ticket</li>
               <li>Import your contacts and matters from a CSV export — dry run first, so you see exactly what lands</li>
@@ -1130,7 +1147,7 @@
               <li>Cancel anytime and take a full export with you</li>
             </ul>
             <a class="btn" href="https://app.collinsos.com/signup">Start free trial</a>
-            <div class="price-foot">Every seat gets every feature. If your trial lapses, your data stays readable — Collins never locks you out of your own records.</div>
+            <div class="price-foot">Every seat gets every feature. When the founding cohort fills, pricing rises for new firms — founding firms keep their rate. If your trial lapses, your data stays readable — Collins never locks you out of your own records.</div>
           </div>
           <div class="price-card">
             <div class="price-plan">Dedicated deployment</div>
@@ -1152,7 +1169,7 @@
     <section id="access">
       <div class="container">
         <div class="cta">
-          <span class="eyebrow">Built for firms ready to own their technology</span>
+          <span class="founder-badge">Founding cohort · Limited to the first 100 firms</span>
           <h2>Get the AI. Keep the privilege.</h2>
           <p>Create your firm in about a minute — name, email, password. Your trial starts with a working practice OS, not a sales call.</p>
           <div class="hero-actions" style="justify-content:center">
